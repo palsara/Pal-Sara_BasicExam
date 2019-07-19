@@ -46,7 +46,7 @@ const Characters = {
   },
   showMore() {
     const divSearch = document.querySelector('.div--search');
-    divSearch.innerHTML = 'GAME OF THRONES';
+    divSearch.innerHTML = '<div class="div--got">GAME OF THRONES</div>';
     const divName = event.target;
     const divDataName = divName.getAttribute('data-name');
     for (let i = 0; i < this.characters.length; i += 1) {
@@ -54,23 +54,36 @@ const Characters = {
         divSearch.innerHTML += this.moreInfo(this.characters[i]);
       }
     }
+    divSearch.innerHTML += '<input type="text" name="search" id="search" placeholder="Search a character" onchange="Characters.search();"></input>';
   },
   moreInfo(character) {
     const moreInfo = `<div>
-                        <img src="${character.picture}" alt="${character.name}">
+                        <img class="img--picture" src="${character.picture}" alt="${character.name}">
                         <br>
-                        <h3>${character.name}</h3>
-                      ${this.hasHouse(character)}
+                        <h3>${character.name}
+                      ${this.hasHouse(character)}</h3>
                         <div>${character.bio}</div>
                       </div>`;
     return moreInfo;
   },
   hasHouse(character) {
     if (character.hasOwnProperty('house')) {
-      return `<img src="/assets/houses/${character.house}.png">`;
+      return `<img class="img--house" src="/assets/houses/${character.house}.png">`;
     }
     return '';
   },
-
+  search() {
+    const divSearch = document.querySelector('.div--search');
+    const searchInp = document.querySelector('#search');
+    divSearch.innerHTML = `<div class="div--got">GAME OF THRONES</div>
+    <input type="text" name="search" id="search" placeholder="Search a character" onchange="Characters.search();">`;
+    for (let i = 0; i < this.characters.length; i += 1) {
+      if (searchInp.value.toLowerCase() === this.characters[i].name.toLowerCase()) {
+        divSearch.innerHTML += this.moreInfo(this.characters[i]);
+        return;
+      }
+    }
+    divSearch.innerHTML += '<h3>Character not found</h3>';
+  },
 };
 Characters.init();

@@ -34,7 +34,30 @@ flex-wrap: wrap
 
 .div--search {
     background: #a1a1a1;
-    font-family: myFirstFont;
     height: 100vh;
     width: 20vw;
+}
+
+#search{
+    position: absolute;
+    top:95vh;
+    left: 84vw;
+    width: 200px;
+}
+
+.div--got{
+    font-family: myFirstFont;
+    text-align: center;
+    padding: 10px;
+}
+
+.img--picture{
+    width: 18vw;
+    position: relative;
+    left:1vw;
+}
+
+.img--house{
+    float:right;
+    padding-right: 10px;
 }
