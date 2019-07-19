@@ -5,7 +5,6 @@ const Characters = {
   },
   setUserData(userData) {
     this.characters = JSON.parse(userData); // átalakítja a JSON filet. Innentől van feltöltve adatokkal a data
-    console.log(this.characters);
     this.showAll();
   },
   findAll() {
@@ -32,23 +31,46 @@ const Characters = {
       }
     }
   },
-  sortByName() {
-    this.characters.sort((a, b) => {
-      const nameA = a.name.toUpperCase(); // nagybetűk és kisbetűk elhagyása
-      const nameB = b.name.toUpperCase(); // nagybetűk és kisbetűk elhagyása
-      if (nameA < nameB) {
-        return -1;
-      }
-      if (nameA > nameB) {
-        return 1;
-      }
-      return 0;
-    });
-  },
-  showMore() {
-    const divName = event.target;
-    const divDataName = divName.getAttribute('data-name');
-    console.log(divDataName);
-  },
+  // sortByName() {
+  //   this.characters.sort((a, b) => {
+  //     const nameA = a.name.toUpperCase(); // nagybetűk és kisbetűk elhagyása
+  //     const nameB = b.name.toUpperCase(); // nagybetűk és kisbetűk elhagyása
+  //     if (nameA < nameB) {
+  //       return -1;
+  //     }
+  //     if (nameA > nameB) {
+  //       return 1;
+  //     }
+  //     return 0;
+  //   });
+  // },
+  // showMore() {
+  //   const divSearch = document.querySelector('.div--search');
+  //   divSearch.innerHTML = 'GAME OF THRONES';
+  //   const divName = event.target;
+  //   const divDataName = divName.getAttribute('data-name');
+  //   for (let i = 0; i < this.characters.length; i += 1) {
+  //     if (divDataName === this.characters[i].name) {
+  //       divSearch.innerHTML += this.moreInfo(this.characters[i]);
+  //     }
+  //   }
+  // },
+  // moreInfo(character) {
+  //   const moreInfo = `<div>
+  //                       <img src="${character.picture}" alt="${character.name}">
+  //                       <br>
+  //                       <h3>${character.name}</h3>
+  //                       <img src="/assets/houses/${this.hasHouse(character)}.png">
+  //                       <div>${character.bio}</div>
+  //                     </div>`;
+  //   return moreInfo;
+  // },
+  // hasHouse(character) {
+  //   if (character.hasOwnProperty('house')) {
+  //     return character.house;
+  //   }
+  //   return '';
+  // },
+
 };
 Characters.init();

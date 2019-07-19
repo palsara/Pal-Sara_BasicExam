@@ -21,7 +21,7 @@ body {
 flex-wrap: wrap
 }
 
-img {
+.div--big img {
     width: 10vh;
 }
 
@@ -29,7 +29,7 @@ img {
     font-family: myFirstFont;
     font-size: 6pt;
     height: 14vh;
-    width: 10vw;
+    width: 9vw;
 }
 
 .div--search {
