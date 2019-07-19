@@ -1,0 +1,40 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(/fonts/Game\ of\ Thrones.ttf);
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.div--big {
+    background-image: url(/assets/site/mapblue.jpg);
+    background-size: cover;
+    height: 100vh;
+    justify-content: space-evenly;
+    width: 80vw;
+flex-wrap: wrap
+}
+
+img {
+    width: 10vh;
+}
+
+.div--characters {
+    font-family: myFirstFont;
+    font-size: 6pt;
+    height: 14vh;
+    width: 10vw;
+}
+
+.div--search {
+    background: #a1a1a1;
+    font-family: myFirstFont;
+    height: 100vh;
+    width: 20vw;
+}
