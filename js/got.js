@@ -31,46 +31,46 @@ const Characters = {
       }
     }
   },
-  // sortByName() {
-  //   this.characters.sort((a, b) => {
-  //     const nameA = a.name.toUpperCase(); // nagybetűk és kisbetűk elhagyása
-  //     const nameB = b.name.toUpperCase(); // nagybetűk és kisbetűk elhagyása
-  //     if (nameA < nameB) {
-  //       return -1;
-  //     }
-  //     if (nameA > nameB) {
-  //       return 1;
-  //     }
-  //     return 0;
-  //   });
-  // },
-  // showMore() {
-  //   const divSearch = document.querySelector('.div--search');
-  //   divSearch.innerHTML = 'GAME OF THRONES';
-  //   const divName = event.target;
-  //   const divDataName = divName.getAttribute('data-name');
-  //   for (let i = 0; i < this.characters.length; i += 1) {
-  //     if (divDataName === this.characters[i].name) {
-  //       divSearch.innerHTML += this.moreInfo(this.characters[i]);
-  //     }
-  //   }
-  // },
-  // moreInfo(character) {
-  //   const moreInfo = `<div>
-  //                       <img src="${character.picture}" alt="${character.name}">
-  //                       <br>
-  //                       <h3>${character.name}</h3>
-  //                       <img src="/assets/houses/${this.hasHouse(character)}.png">
-  //                       <div>${character.bio}</div>
-  //                     </div>`;
-  //   return moreInfo;
-  // },
-  // hasHouse(character) {
-  //   if (character.hasOwnProperty('house')) {
-  //     return character.house;
-  //   }
-  //   return '';
-  // },
+  sortByName() {
+    this.characters.sort((a, b) => {
+      const nameA = a.name.toUpperCase(); // nagybetűk és kisbetűk elhagyása
+      const nameB = b.name.toUpperCase(); // nagybetűk és kisbetűk elhagyása
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+  },
+  showMore() {
+    const divSearch = document.querySelector('.div--search');
+    divSearch.innerHTML = 'GAME OF THRONES';
+    const divName = event.target;
+    const divDataName = divName.getAttribute('data-name');
+    for (let i = 0; i < this.characters.length; i += 1) {
+      if (divDataName === this.characters[i].name) {
+        divSearch.innerHTML += this.moreInfo(this.characters[i]);
+      }
+    }
+  },
+  moreInfo(character) {
+    const moreInfo = `<div>
+                        <img src="${character.picture}" alt="${character.name}">
+                        <br>
+                        <h3>${character.name}</h3>
+                      ${this.hasHouse(character)}
+                        <div>${character.bio}</div>
+                      </div>`;
+    return moreInfo;
+  },
+  hasHouse(character) {
+    if (character.hasOwnProperty('house')) {
+      return `<img src="/assets/houses/${character.house}.png">`;
+    }
+    return '';
+  },
 
 };
 Characters.init();
