@@ -4,16 +4,13 @@ const Characters = {
     this.findAll();
   },
   setUserData(userData) {
-    this.characters = JSON.parse(userData); // átalakítja a JSON filet. Innentől van feltöltve adatokkal a data
+    this.characters = JSON.parse(userData);
     this.showAll();
   },
   findAll() {
     const request = new XMLHttpRequest();
     request.onload = () => { // onload eseményfigyelő
       this.setUserData(request.responseText);
-    };
-    request.onerror = () => { // ha nem tölt be, alertet dob-NEM HASZNÁLUNK ALERTET
-      alert('Hiba a fájl betöltésekor');
     };
     request.open('GET', '/json/got.json');
     request.send();
@@ -25,8 +22,8 @@ const Characters = {
     for (let i = 0; i < this.characters.length; i += 1) {
       if (!this.characters[i].dead) {
         divBig.innerHTML += `<div class="div--characters" >
-        <div><img src="${this.characters[i].portrait}" alt="${this.characters[i].name}" data-name="${this.characters[i].name}" onclick="Characters.showMore();"></div>
-        <div data-name="${this.characters[i].name}" onclick="Characters.showMore();">${this.characters[i].name}</div>
+        <div><img class="img--portrait" src="${this.characters[i].portrait}" alt="${this.characters[i].name}" data-name="${this.characters[i].name}" onclick="Characters.showMore();"></div>
+        <div class="div--characters" data-name="${this.characters[i].name}" onclick="Characters.showMore();">${this.characters[i].name}</div>
         </div>`;
       }
     }

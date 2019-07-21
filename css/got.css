@@ -18,7 +18,7 @@ body {
     height: 100vh;
     justify-content: space-evenly;
     width: 80vw;
-flex-wrap: wrap
+    flex-wrap: wrap
 }
 
 .div--big img {
@@ -38,26 +38,43 @@ flex-wrap: wrap
     width: 20vw;
 }
 
-#search{
+#search {
     position: absolute;
-    top:95vh;
+    top: 95vh;
     left: 84vw;
     width: 200px;
 }
 
-.div--got{
+.div--got {
     font-family: myFirstFont;
     text-align: center;
     padding: 10px;
 }
 
-.img--picture{
+.img--picture {
     width: 18vw;
     position: relative;
-    left:1vw;
+    left: 1vw;
 }
 
-.img--house{
-    float:right;
+.img--house {
+    float: right;
     padding-right: 10px;
+}
+
+.div--characters:hover {
+    text-shadow: 2px 2px#fff;
+    
+}
+.div--characters:active {
+    text-shadow: 2px 2px #00FA9A;
+}
+
+.img--portrait:hover {
+    border: 3px outset 	#fff;
+    border-radius: 50%;
+}
+.img--portrait:active {
+    border: 3px outset #00FA9A;
+    border-radius: 50%;
 }
